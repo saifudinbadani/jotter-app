@@ -1,0 +1,7 @@
+.landingPage{
+    min-height: 100vh;
+}
+
+.title-landingPage{
+    color: var(--blue-500);
+}
