@@ -2,6 +2,10 @@
     min-height: 100vh;
 }
 
+.link-landingPage{
+    flex-direction: column;
+    max-width: 20rem;
+}
 .title-landingPage{
     color: var(--blue-500);
 }
