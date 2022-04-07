@@ -7,7 +7,7 @@ import './LandingPage.css';
         <p className='heading-2'>Note taking now made easy..</p>
         <div className='link-landingPage display-flex'>
         <button className='btn btn-l btn-solid-secondary'>Login</button>
-        <a href="#" class="link secondary-link">Already have an account?</a>
+        <a href="#" className="link secondary-link">Already have an account?</a>
         </div>
         </div>
     </div>
