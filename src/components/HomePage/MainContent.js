@@ -6,25 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import './Homepage.css';
 
 export const MainContent = () => {
-    // const [notesData, setNotesData] = useState([]);
-    
-    // const [notes, setNotes] = useState({
-    //     title: '',
-    //     content: '',
-    // })
 
-    // const notesInputHandler = (e) => {
-    //     setNotes({...notes, [e.target.name]: e.target.value, date: `${new Date(Date.now()).toLocaleDateString()}`, id: uuidv4()})
-    // }
-    // const saveNotesHandler = () => {
-    //     setNotesData((prev) => [...prev, notes])
-        
-    //     setNotes({
-    //         title: '',
-    //         content: '',
-    //     })
-       
-    // }
     const [title, setTitle ] = useState('');
     const [content, setContent ] = useState('');
     const { noteState:{ notesData }, noteDispatch } = useNotes();
@@ -60,7 +42,7 @@ export const MainContent = () => {
 
 
         <div className='notes-container display-flex'>
-
+            
             {notesData.map((note) => {
 
                return <div className='note display-flex' key={note.id}>
@@ -70,7 +52,7 @@ export const MainContent = () => {
                 <div className='notes-btn'>
                     <i className="notes-icon fas fa-palette"></i>
                     <i className="notes-icon fas fa-tag"></i>
-                    <i className="notes-icon fas fa-archive"></i>
+                    <i className="notes-icon fas fa-archive" onClick={() => noteDispatch({type: 'ARCHIVE_NOTE', payload: note})}></i>
                     <i className="notes-icon fas fa-trash" onClick={() => noteDispatch({type: 'DELETE_NOTE', payload: note})}></i>
                     <button className='btn btn-solid-secondary'>Edit</button>
                 </div>

@@ -1,16 +1,18 @@
 import './Homepage.css';
+import { Link } from 'react-router-dom';
+
 
 export const SideBar = () => {
     return <aside className='side-wrapper display-flex'>
-        <button className='btn-sideWrapper  btn'>
+        <Link to='/homePage'><button className='btn-sideWrapper  btn'>
             <i className="icon-sideWrapper fas fa-home-alt"></i>
-            Home</button>
+            Home</button></Link>
         <button className='btn-sideWrapper  btn'>
             <i className="icon-sideWrapper fas fa-tag"></i>
             Labels</button>
-        <button className='btn-sideWrapper  btn'>
+        <Link to='/archive'><button className='btn-sideWrapper  btn'>
             <i className="icon-sideWrapper fas fa-archive"></i>
-            Archive</button>
+            Archive</button></Link>
         <button className='btn-sideWrapper  btn'>
             <i className="icon-sideWrapper fas fa-trash"></i>
             Trash</button>
