@@ -1,0 +1,86 @@
+.side-wrapper{
+    flex-direction: column;
+    max-width: 20rem; 
+    margin: 0  2rem;
+}
+
+.btn-sideWrapper{
+    margin: 1rem 0;
+    padding: 1rem 1rem 1.2rem 1rem;
+}
+
+.btn-sideWrapper:hover{
+    background-color: var(--blue-300);
+    color: white;
+}
+
+.icon-sideWrapper{
+    font-size: var(--tp2);
+    padding: 0 1rem;
+}
+
+/* Main Content */
+.main-notes-container{
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 3.5rem 2rem;
+}
+/* Notes input */
+.input-note-container{
+    border: 1px solid black;
+    align-self: center;
+    border-radius: 0.3rem;
+    min-height: 20rem;
+    min-width: 60rem;
+    flex-direction: column;
+}
+
+.title-input-note{
+    min-height: 4rem;
+    text-align: center;
+}
+
+.content-input-note{
+    min-height: 10rem;
+    padding: 1rem 1rem;
+}
+
+.notes-btn{
+    margin-left: auto;
+}
+
+.notes-icon{
+    font-size: 3rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+/* note */
+.notes-container{
+    flex-wrap: wrap;
+}
+.note{
+    min-height: 20rem;
+    max-width: 40rem;
+    flex-direction: column;
+    border-radius: 0.3rem;
+    margin: 1rem;
+    overflow: scroll;
+    background-color: var(--blue-100);
+}
+
+.archive-note{
+    max-height: 20rem;
+    max-width: 40rem;
+    flex-direction: column;
+    border-radius: 0.3rem;
+    margin: 1rem;
+    overflow: scroll;
+    background-color: var(--blue-100);
+}
+
+.emptyPage{
+    align-self: center;
+    margin-left: 20rem;
+    color: var(--blue-300);
+}

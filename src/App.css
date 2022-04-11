@@ -1,51 +1,118 @@
 .App {
+  min-height: 100vh;
+}
+
+
+:root{
+  --bg-clr: #e5e5e5;
+  --primary-clr: #fca311;
+  --cta-clr: #1154BF;
+  --text:rgb(240, 238, 238);
+  --text-on-white: #8d8d8d;
+  --heading: #3f4041;
+}
+
+.primary-clr{
+  background-color: var(--primary-clr);
+}
+
+.bg-clr{
+  background-color: var(--bg-clr);
+}
+.clr-text-on-white{
+  color: var(--text-on-white);
+}
+
+.cta-clr{
+  color: var(--cta-clr);
+}
+/* flex properties */
+.align-content-cntr{
+  align-content: center;
+}
+.align-items-cntr{
+  align-items: center;
+}
+
+.align-items-flx-start{
+  align-items: flex-start;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+
+.justify-content-spce-btwn{
+  justify-content: space-between;
+}
+.justify-content-spce-arnd{
+  justify-content: space-evenly;
+}
+/* display classes */
+.disp-grid{
+  display: grid;
+}
+
+/* font size */
+.font-size-1pt4{
+  font-size: 1.4rem;
+}
+.font-size-1pt7{
+  font-size: 1.7rem;
+}
+
+.font-size-2pt6{
+  font-size: 2.6rem;
+}
+
+/* font-colour */
+
+.text-black{
+  color: var(--heading);
+}
+
+/* font-alignment */
+
+.txt-align-cntr{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* size classes */
+.width-100pcnt{
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.width-40{
+  width: 40rem;
 }
 
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+/* utility className */
+
+.p-rl-6{
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
-.App-link {
-  color: #61dafb;
+.p-rl-1{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
+.m-t-8{
+  margin-top: 8rem;
+}
+.m-t-1{
+  margin-top: 1rem;
 }
 
-.brand-title span {
-  color: #ffde59;
+.m-l-1{
+  margin-left: 1rem;
 }
 
-.brand-description {
-  font-size: 1.4rem;
-}
+/* cards-modification */
 
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+.card-author,
+.card-text{
+  color: var(--text-on-white);
 }

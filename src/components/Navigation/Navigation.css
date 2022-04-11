@@ -1,0 +1,31 @@
+.input-search {
+    margin-left: 20rem;
+}
+.input-search > i {
+    top: -0.3rem;
+    left: 17rem;
+    cursor: pointer;
+}
+
+.input-search > input{
+    padding: 0.2rem 0.8rem;
+    font-size: 1.7rem;
+    border-radius: 3px;
+    border: none;
+}
+
+.nav-container > .nav-link-cta{
+    color: var(--cta-clr);
+}
+
+.nav-link-cta:hover{
+    text-decoration: underline;
+}
+
+.nav-container{
+    background-color: var(--blue-500);
+}
+
+.nav-link{
+    color: var(--text);
+}
