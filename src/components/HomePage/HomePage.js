@@ -12,7 +12,7 @@ import { Modal } from './Modal';
         <div className='display-flex'>
         <SideBar />
         <Modal open={isModalOpen} setModalClose={() => SetIsModalOpen(false)}/>
-        <MainContent setModalOpen={SetIsModalOpen}/>
+        <MainContent setModalOpen={() =>SetIsModalOpen(true)}/>
         </div>
     </div>
 }
