@@ -2,8 +2,8 @@ import { NoteCard } from './NotesCard';
 import { useState } from 'react';
 import { useNotes } from '../../context/NotesContext';
 import { v4 as uuidv4 } from 'uuid';
-
 import './Homepage.css';
+
 
 export const MainContent = ({setModalOpen}) => {
     const [title, setTitle ] = useState('');
@@ -37,7 +37,9 @@ export const MainContent = ({setModalOpen}) => {
         <div className='notes-container display-flex'>
 
             {notesData.map((note) => {
-                return <NoteCard note={note} setModalOpen={setModalOpen}/>
+                return <>
+                            <NoteCard note={note} setModalOpen={setModalOpen}/>
+                        </> 
             })}
 
         </div>
