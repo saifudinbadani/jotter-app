@@ -61,13 +61,15 @@
 }
 .note{
     min-height: 20rem;
+    width: 20rem;
     max-width: 40rem;
     flex-direction: column;
     border-radius: 0.3rem;
     margin: 1rem;
     overflow: scroll;
-    background-color: var(--blue-100);
+
 }
+
 
 .archive-note{
     max-height: 20rem;
@@ -84,3 +86,54 @@
     margin-left: 20rem;
     color: var(--blue-300);
 }
+
+/* color classes */
+
+.red{
+    background-color: #F87171;
+}
+
+
+.yellow{
+    background-color: #FBBF24;
+}
+
+.green{
+    background-color: #34D399;
+}
+
+.pink{
+    background-color: #F472B6 ;
+}
+
+.purple{
+    background-color: #A78BFA ;
+}
+
+.clr-btn{
+    border: 1px solid white;
+    padding: 1rem;
+}
+
+/* edit modal */
+
+.edit-Modal{
+    background-color: var(--blue-300);
+    /* display: none;  */
+    position: fixed;
+    z-index: 999; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto; 
+} 
+
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
