@@ -2,14 +2,15 @@ import { useState } from "react";
 import { useNotes } from '../../context/NotesContext';
 import { Modal } from "./Modal";
 
-export const NoteCard = ({note, setModalOpen}) => {
+export const NoteCard = ({note}) => {
     const { noteDispatch } = useNotes();
     const [colorSection, setColorSection] = useState(false);
+    const [isModalOpen, SetIsModalOpen] = useState(false);
     
     
     const clrChangeHandler = (currentNote, color) => {
         const updatedNote = {...currentNote, color: color}
-        noteDispatch({type: 'COLOR_CHANGE', payload: updatedNote}) 
+        noteDispatch({type: 'UPDATE_NOTE', payload: updatedNote}) 
     }
     return <>
      <div className={`note display-flex ${note.color} pos-rltv`} key={note.id}>
@@ -30,10 +31,10 @@ export const NoteCard = ({note, setModalOpen}) => {
                 <i className="notes-icon fas fa-tag"></i>
                 <i className="notes-icon fas fa-archive" onClick={() => noteDispatch({type: 'ARCHIVE_NOTE', payload: note})}></i>
                 <i className="notes-icon fas fa-trash" onClick={() => noteDispatch({type: 'DELETE_NOTE', payload: note})}></i>
-                <button className='btn btn-solid-secondary' onClick={setModalOpen}>Edit</button>
+                <button className='btn btn-solid-secondary' onClick={() => SetIsModalOpen(true)}>Edit</button>
             </div>
     </div>
-    <Modal note={note} />
+    <Modal open={isModalOpen} setModalClose={() => SetIsModalOpen(false)} note={note}/> 
     </>
 
 }

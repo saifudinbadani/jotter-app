@@ -35,7 +35,7 @@ export const MainContent = ({setModalOpen}) => {
             <textarea name='content' className='content-input-note m-1' placeholder='content comes here...'  onChange={(e) => setContent(e.target.value) } value={content}/>
             <div className='notes-btn display-flex'>
                     <div className='priority-input-note heading-4'>
-                    <label for="priority-select">Priority: </label>
+                    <label htmlFor="priority-select">Priority: </label>
 
                     <select name="priority" id="priority-select" onChange={(e) => setPriority(e.target.value)}>
                         <option value="Low" >Low</option>

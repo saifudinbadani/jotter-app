@@ -67,8 +67,8 @@
     flex-wrap: wrap;
 }
 .note{
-    min-height: 20rem;
-    width: 20rem;
+    height: 25rem;
+    width: 25rem;
     max-width: 40rem;
     flex-direction: column;
     border-radius: 0.3rem;
@@ -76,7 +76,9 @@
     overflow: scroll;
 
 }
-
+.content-note{
+    overflow: scroll;
+}
 .badge-note, .priority-note{
     border: 1px solid white;
     ;

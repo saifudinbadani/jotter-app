@@ -18,7 +18,7 @@
             return {
                 ...state, notesData: [...state.notesData, payload],
             }   
-        case 'COLOR_CHANGE':
+        case 'UPDATE_NOTE':
             return {
                 ...state, notesData: [...state.notesData.map((item) => {
                     if(item.id === payload.id){
