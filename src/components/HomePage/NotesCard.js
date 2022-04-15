@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNotes } from '../../context/NotesContext';
+
 import { Modal } from "./Modal";
 
 export const NoteCard = ({note}) => {
