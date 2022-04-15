@@ -165,3 +165,20 @@
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* filter table */
+
+.filterTable-note-container{
+    margin-top: 1rem;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.filter-note-heading{
+    margin-right: 1rem;
+}
+.filter-note-form{
+    background-color: var(--blue-300);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
