@@ -14,7 +14,7 @@ export const sortByTimeFn = (state, data) => {
     if(state === "sortByLtoH"){
         return [...data].sort((a,b) =>  a.sortTime - b.sortTime)
     }
-    if(state = 'sortByLtoH'){
+    if(state === 'sortByHtoL'){
         return [...data].sort((a,b) => b.sortTime - a.sortTime)
     }
     return data
