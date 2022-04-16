@@ -18,7 +18,7 @@
             return {
                 ...state, notesData: [...state.notesData, payload],
             }   
-        case 'COLOR_CHANGE':
+        case 'UPDATE_NOTE':
             return {
                 ...state, notesData: [...state.notesData.map((item) => {
                     if(item.id === payload.id){
@@ -42,7 +42,25 @@
                 archiveNotes: [...state.archiveNotes.filter((item) => {
                     return  item.id !== payload.id
                  })]
-            }        
+            }  
+        
+        case 'SORT_BY_PRIORITY_LtoH':
+            
+            return {
+                ...state, sortByPriority:  "SORT_BY_PRIORITY_LtoH"
+            }
+        case 'SORT_BY_PRIORITY_HtoL':
+            return {
+                ...state, sortByPriority:  "SORT_BY_PRIORITY_HtoL"
+            }  
+        case 'sortByLtoH':
+            return {
+                ...state, sortTime : "sortByLtoH"
+            } 
+        case 'sortByHtoL':
+            return {
+                ...state, sortTime: 'sortByHtoL'
+            }           
         default:
             return state
     }
