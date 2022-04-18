@@ -9,9 +9,13 @@
     padding: 1rem 1rem 1.2rem 1rem;
 }
 
-.btn-sideWrapper:hover{
+.btn-sideWrapper:hover, .btn-sideWrapper-selected{
     background-color: var(--blue-300);
     color: white;
+}
+
+a:visited{
+    color: black;
 }
 
 .icon-sideWrapper{

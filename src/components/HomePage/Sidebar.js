@@ -1,18 +1,18 @@
 import './Homepage.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 export const SideBar = () => {
     return <aside className='side-wrapper display-flex'>
-        <Link to='/homePage'><button className='btn-sideWrapper  btn'>
+        <NavLink to='/homePage' className={({ isActive}) => isActive ? 'btn-sideWrapper  btn btn-sideWrapper-selected': 'btn-sideWrapper  btn'}>
             <i className="icon-sideWrapper fas fa-home-alt"></i>
-            Home</button></Link>
+            Home</NavLink>
         <button className='btn-sideWrapper  btn'>
             <i className="icon-sideWrapper fas fa-tag"></i>
             Labels</button>
-        <Link to='/archive'><button className='btn-sideWrapper  btn'>
+            <NavLink to='/archive' className={({ isActive}) => isActive ? 'btn-sideWrapper  btn btn-sideWrapper-selected': 'btn-sideWrapper  btn'}>
             <i className="icon-sideWrapper fas fa-archive"></i>
-            Archive</button></Link>
+            Archive</NavLink>
         <button className='btn-sideWrapper  btn'>
             <i className="icon-sideWrapper fas fa-trash"></i>
             Trash</button>
@@ -21,3 +21,5 @@ export const SideBar = () => {
             Profile</button>
     </aside>
 }
+
+{/* <button className='btn-sideWrapper  btn'></button> */}

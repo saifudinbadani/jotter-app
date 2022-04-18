@@ -1,0 +1,36 @@
+.form {
+    padding: 3rem 4rem; 
+}
+
+.form > button{
+    width: 95%;
+    height: 3rem;
+}
+.form > .form-control{
+    max-width: 100%;
+}
+
+.form-control > label {
+    color: var(--text-on-white);
+}
+
+.container {
+    margin-top: 10%;
+    margin-left: 35%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.3);
+    width: 40rem;
+}
+
+.form-checkbox{
+    align-items: center;
+}
+.form-link{
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-angle-right{
+    margin-left: 1rem;
+}
