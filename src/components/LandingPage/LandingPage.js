@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
         <h1 className='title-landingPage heading-1'>Jotter</h1>
         <p className='heading-2'>Note taking now made easy..</p>
         <div className='link-landingPage display-flex'>
-       <Link to='/homePage'> <button className='btn btn-l btn-solid-secondary'>Login</button></Link>
+       <Link to='/login'> <button className='btn btn-l btn-solid-secondary'>Login</button></Link>
         <a href="#" className="link secondary-link">Already have an account?</a>
         </div>
         </div>
