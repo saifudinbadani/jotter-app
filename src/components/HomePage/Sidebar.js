@@ -1,5 +1,5 @@
 import './Homepage.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 export const SideBar = () => {
@@ -22,4 +22,3 @@ export const SideBar = () => {
     </aside>
 }
 
-{/* <button className='btn-sideWrapper  btn'></button> */}
