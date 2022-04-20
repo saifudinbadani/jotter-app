@@ -19,10 +19,12 @@ export const SignUp = () => {
         e.preventDefault();
        setFormErrors(validateForm(formValues)) 
        const response = await signUpService(formValues.email, formValues.passwordOne, formValues.username);
-       console.log(response)
-       localStorage.setItem('token', response.data.encodedToken)
+      if(response){
+        localStorage.setItem('token', response.data.encodedToken)
         localStorage.setItem('isLoggedIn', true)
         navigate('/login')
+      }
+       
     }
 
     const validateForm = (values) => {
