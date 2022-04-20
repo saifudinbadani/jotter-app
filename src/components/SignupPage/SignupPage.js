@@ -1,13 +1,13 @@
 import '../HomePage/Homepage.css'; 
 import { Navigation } from "../Navigation/Navigation";
-import { Login } from './Login';
+import { SignUp } from './SignUp';
 
- export const LoginPage = () => {
+ export const SignUpPage = () => {
 
-    return <div className='loginPage'>
+    return <div className='signUpPage'>
         <Navigation />
         <div className='display-flex'>
-        <Login />
+        <SignUp />
         </div>
     </div>
 }
