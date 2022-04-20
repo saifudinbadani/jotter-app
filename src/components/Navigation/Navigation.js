@@ -12,6 +12,6 @@ export const Navigation = () => {
     </div>
     {/* <Link to='/productlist' className="nav-link-cta">Shop Now</Link> */}
     <Link to='/login' className="nav-link"><button
-            className="btn btn-solid-secondary" onClick={() => isLoggedIn ? setInitialAuth({isLoggedIn: false}) : setInitialAuth({isLoggedIn: true})}>{isLoggedIn ? 'Logout' : 'Login'}</button></Link>
+            className="btn btn-solid-secondary" onClick={() => isLoggedIn && setInitialAuth({isLoggedIn: false})}>{isLoggedIn ? 'Logout' : 'Login'}</button></Link>
     </nav>
 }

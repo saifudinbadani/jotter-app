@@ -8,7 +8,6 @@ import { Login } from './Login';
     return <div className='archivePage'>
         <Navigation />
         <div className='display-flex'>
-        <SideBar />
         <Login />
         </div>
     </div>

@@ -37,7 +37,6 @@ export const MainContent = ({setModalOpen}) => {
     const sortByTimeData = sortByTimeFn(sortTime, sortByPriorityData)
 
 
-    console.log(notesData)
     return <div className='main-notes-container display-flex'>
         <div className='input-note-container display-flex p-1 heading-3'>
             <input type='text' name='title' className='title-input-note heading-3 m-1' value={title} onChange={(e) => setTitle(e.target.value)} placeholder='title comes here...'/>
