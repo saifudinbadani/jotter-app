@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { signUpService } from '../../utils/AuthFunctions';
 import { useNavigate } from 'react-router-dom';
+import { validateForm } from '../../utils/FormValidation';
 
 export const SignUp = () => {
     const navigate = useNavigate();
@@ -20,35 +21,13 @@ export const SignUp = () => {
        setFormErrors(validateForm(formValues)) 
        if(Object.keys(formErrors).length === 0){
         const response = await signUpService(formValues.email, formValues.passwordOne, formValues.username);
-            localStorage.setItem('token', response.data.encodedToken)
-            localStorage.setItem('isLoggedIn', true)
-            navigate('/login')
-       }
-      
-       
+        localStorage.setItem('token', response.data.encodedToken)
+        localStorage.setItem('isLoggedIn', true)
+        navigate('/login')
+       }  
     }
 
-    const validateForm = (values) => {
-        const errors = {}
-        let re = /\S+@\S+\.\S+/;
-        if(!values.username){
-            errors.username = 'Username is required!'
-        }
-        if(!values.email){
-            errors.email = 'Email is required!'
-        } else if(!re.test(values.email)){
-            errors.email = 'Please enter a valid email!'
-        }
-        if(!values.passwordOne){
-            errors.passwordOne = 'Password is required!'
-        } else if(values.passwordOne.length < 8){
-            errors.passwordOne = 'Minimum 8 characters required!'
-        }
-        if(values.passwordTwo !== values.passwordOne){
-            errors.passwordTwo = 'Confirm password!'
-        }
-        return errors;
-    }
+   
     return <div className='container'>
          <form id="form" className="form" onSubmit={handleFormSubmit}>
              <h3 className="heading-3 txt-align-cntr">Signup</h3>
