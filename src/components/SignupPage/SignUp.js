@@ -18,12 +18,13 @@ export const SignUp = () => {
     const handleFormSubmit = async(e) => {
         e.preventDefault();
        setFormErrors(validateForm(formValues)) 
-       const response = await signUpService(formValues.email, formValues.passwordOne, formValues.username);
-      if(response){
-        localStorage.setItem('token', response.data.encodedToken)
-        localStorage.setItem('isLoggedIn', true)
-        navigate('/login')
-      }
+       if(Object.keys(formErrors).length === 0){
+        const response = await signUpService(formValues.email, formValues.passwordOne, formValues.username);
+            localStorage.setItem('token', response.data.encodedToken)
+            localStorage.setItem('isLoggedIn', true)
+            navigate('/login')
+       }
+      
        
     }
 

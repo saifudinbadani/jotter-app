@@ -25,9 +25,7 @@ const Login = () => {
             localStorage.setItem('token', respData.data.encodedToken)
             localStorage.setItem('isLoggedIn', true)
             navigate('/homePage') 
-        } else{
-            console.log('respData')
-        }
+        } 
           
     }
     const guestLoginHandler = async () => {
