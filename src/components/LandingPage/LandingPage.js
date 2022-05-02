@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
         <p className='heading-2'>Note taking now made easy..</p>
         <div className='link-landingPage display-flex'>
        <Link to='/login'> <button className='btn btn-l btn-solid-secondary'>Login</button></Link>
-        <Link to='/login' className="link secondary-link">Already have an account?</Link>
+        <Link to='/signup' className="link secondary-link">Create an account?</Link>
         </div>
         </div>
     </div>
