@@ -19,7 +19,7 @@ export const SignUp = () => {
     const handleFormSubmit = async(e) => {
         e.preventDefault();
        setFormErrors(validateForm(formValues)) 
-       if(Object.keys(formErrors).length === 0){
+       if(!(validateForm(formValues))){
         const response = await signUpService(formValues.email, formValues.passwordOne, formValues.username);
         localStorage.setItem('token', response.data.encodedToken)
         localStorage.setItem('isLoggedIn', true)
