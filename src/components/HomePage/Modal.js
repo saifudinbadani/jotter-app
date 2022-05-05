@@ -1,10 +1,13 @@
 import reactDom from "react-dom";
 import { useState } from "react";
 import { useNotes } from "../../context/NotesContext";
+import { useAuth } from "../../context/AuthContext";
 import './Homepage.css';
+import { UpdateNoteApiCall } from "../../utils/NotesApiFunctions";
 
 
 export const Modal = ({open, setModalClose, note}) => {
+    const { initialAuth: { token }} = useAuth();
     const { noteDispatch } = useNotes();
     const [editInput,setEditInput] = useState({
         ...note
@@ -14,8 +17,11 @@ export const Modal = ({open, setModalClose, note}) => {
         setEditInput((prev) => ({...prev, [e.target.name]: e.target.value}))
     }
     
-    const updatedNotesDispatch =() => {
-        noteDispatch({type: 'UPDATE_NOTE', payload: editInput})
+    const updatedNotesDispatch = async() => {
+        console.log(editInput)
+        const response = await UpdateNoteApiCall(token, editInput)
+       
+        noteDispatch({type: 'NOTES', payload: response})
         setModalClose(); 
     }
     if(!open) return null

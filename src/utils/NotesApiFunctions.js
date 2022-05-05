@@ -37,7 +37,7 @@ export const GetNoteApiCall = async (encodedToken) => {
 export const UpdateNoteApiCall = async (encodedToken, note) => {
 
     try {
-        const response = await axios.post(`/api/notes/${note.id}`, {
+        const response = await axios.post(`/api/notes/${note._id}`, {
             note
         }, {
             headers: {
@@ -45,6 +45,7 @@ export const UpdateNoteApiCall = async (encodedToken, note) => {
             }
         })
         if (response.status === 200 || response.status === 201) {
+            
             return response.data.notes;
         }
     } catch (error) {
@@ -52,11 +53,9 @@ export const UpdateNoteApiCall = async (encodedToken, note) => {
     }
 }
 
-export const DeleteNoteApiCall = async (encodedToken, note) => {
+export const DeleteNoteApiCall = async (encodedToken, _id) => {
     try {
-        const response = await axios.delete(`/api/notes/${note.id}`, {
-            note
-        }, {
+        const response = await axios.delete(`/api/notes/${_id}`, {
             headers: {
                 authorization: encodedToken
             }
@@ -86,7 +85,7 @@ export const GetArchiveNoteApiCall = async (encodedToken) => {
 
 export const AddToArchiveApiCall = async (encodedToken, note) => {
     try {
-        const response = await axios.post(`/api/notes/archives/${note.id}`,{
+        const response = await axios.post(`/api/notes/archives/${note._id}`,{
             note
         }, {
             headers: {
@@ -101,9 +100,9 @@ export const AddToArchiveApiCall = async (encodedToken, note) => {
     }
 }
 
-export const RestoreFromArchiveApiCall = async (encodedToken) => {
+export const RestoreFromArchiveApiCall = async (encodedToken, note) => {
     try {
-        const response = await axios.post(`/api//archives/restore/${note.id}`, {
+        const response = await axios.post(`/api/archives/restore/${note._id}`,{dummy: 123}, {
             headers: {
                 authorization: encodedToken
             }
@@ -112,13 +111,14 @@ export const RestoreFromArchiveApiCall = async (encodedToken) => {
             return response.data
         }
     } catch (error) {
+        
         console.log(error)
     }
 }
 
-export const DeleteFromArchiveApiCall = async (encodedToken) => {
+export const DeleteFromArchiveApiCall = async (encodedToken, note) => {
     try {
-        const response = await axios.delete(`/api//archives/delete/${note.id}`, {
+        const response = await axios.delete(`/api/archives/delete/${note._id}`, {
             headers: {
                 authorization: encodedToken
             }
