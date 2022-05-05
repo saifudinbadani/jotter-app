@@ -2,11 +2,14 @@ import { NoteCard } from './NotesCard';
 import { useState } from 'react';
 import { useNotes } from '../../context/NotesContext';
 import { sortByPriorityFn, sortByTimeFn } from '../../utils/FilterFunctions';
+import { useAuth } from '../../context/AuthContext';
+import { AddNoteApiCall } from '../../utils/NotesApiFunctions';
 import { v4 as uuidv4 } from 'uuid';
 import './Homepage.css';
 
 
 export const MainContent = ({setModalOpen}) => {
+    const { initialAuth: { token} } = useAuth();
     const [title, setTitle ] = useState('');
     const [content, setContent ] = useState('');
     const [label, setLabel] = useState('');
@@ -15,19 +18,30 @@ export const MainContent = ({setModalOpen}) => {
     const { noteState:{ notesData, sortByPriority, sortTime }, noteDispatch } = useNotes();
     const bgColor = ['red', 'yellow', 'green', 'pink', 'purple']
     const randomBgClr = bgColor[Math.floor(Math.random()*bgColor.length)]
-    const addThisNote = () => {
-        noteDispatch({type: 'ADD_NOTE', payload:{ 
+    const addThisNote = async() => {
+        // noteDispatch({type: 'ADD_NOTE', payload:{ 
+        //     title,
+        //     content,
+        //     date: `${new Date(Date.now()).toLocaleDateString()}`,
+        //     sortTime: new Date().getTime(),
+        //     id: uuidv4(),
+        //     color: randomBgClr,
+        //     label,
+        //     priority,
+        // }})
+
+       const response = await  AddNoteApiCall(token, {
             title,
             content,
             date: `${new Date(Date.now()).toLocaleDateString()}`,
             sortTime: new Date().getTime(),
-            id: uuidv4(),
+            _id: uuidv4(),
             color: randomBgClr,
             label,
             priority,
-
-
-        }})
+        })
+       
+        noteDispatch({type: 'NOTES', payload: response})
         setTitle('')
         setContent('')
         setLabel('')
@@ -84,7 +98,7 @@ export const MainContent = ({setModalOpen}) => {
 
             {sortByTimeData.map((note) => {
                 return <>
-                            <NoteCard note={note} setModalOpen={setModalOpen} />
+                            <NoteCard note={note} setModalOpen={setModalOpen} key={note._id}/>
                         </> 
             })}
 
