@@ -21,7 +21,11 @@ export const validateForm = (values) => {
     if(values.passwordTwo !== values.passwordOne){
         errors.passwordTwo = 'Confirm password!'
     }
-    if(Object.keys(errors).length > 0){
-        return errors;
-    } 
+    if(Object.keys(errors).length > 0 ){
+        return errors
+    }else{
+        return false
+    }
+    
+    
 }

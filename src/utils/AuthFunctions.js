@@ -21,7 +21,7 @@ export const  loginService = async (email, password) => {
 
 export const signUpService = async (email, password, ...rest) => {
     try {
-        const response = await axios.post(`/api/auth/signup`, {
+        const response = await axios.post('/api/auth/signup', {
           email,
           password,
           ...rest
@@ -30,6 +30,6 @@ export const signUpService = async (email, password, ...rest) => {
             return response
          }
       } catch (error) {
-        console.log(error);
+        return error.response.data
       }
 }
