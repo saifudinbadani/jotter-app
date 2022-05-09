@@ -7,6 +7,8 @@ export const validateForm = (values) => {
     let re = /\S+@\S+\.\S+/;
     if(!values.firstName){
         errors.username = 'Username is required!'
+    } else if(values.firstName.length > 7){
+        errors.username = 'Username should not be more than 7 characters long!'
     }
     if(!values.email){
         errors.email = 'Email is required!'
