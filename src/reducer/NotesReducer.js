@@ -72,11 +72,11 @@
             }  
         case 'sortByLtoH':
             return {
-                ...state, sortTime : "sortByLtoH"
+                ...state, sortByPriority : "sortByLtoH"
             } 
         case 'sortByHtoL':
             return {
-                ...state, sortTime: 'sortByHtoL'
+                ...state, sortByPriority: 'sortByHtoL'
             }           
         default:
             return state

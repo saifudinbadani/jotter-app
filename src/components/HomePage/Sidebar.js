@@ -1,8 +1,10 @@
 import './Homepage.css';
 import { NavLink } from 'react-router-dom';
 
-
 export const SideBar = () => {
+  
+    const userName = localStorage.getItem('userName') ? localStorage.getItem('userName'): 'User'
+    
     return <aside className='side-wrapper display-flex'>
         <NavLink to='/homePage' className={({ isActive}) => isActive ? 'btn-sideWrapper  btn btn-sideWrapper-selected': 'btn-sideWrapper  btn'}>
             <i className="icon-sideWrapper fas fa-home-alt"></i>
@@ -13,12 +15,10 @@ export const SideBar = () => {
             <NavLink to='/archive' className={({ isActive}) => isActive ? 'btn-sideWrapper  btn btn-sideWrapper-selected': 'btn-sideWrapper  btn'}>
             <i className="icon-sideWrapper fas fa-archive"></i>
             Archive</NavLink>
-        <button className='btn-sideWrapper  btn'>
-            <i className="icon-sideWrapper fas fa-trash"></i>
-            Trash</button>
+
         <button className='btn-sideWrapper  btn'>
             <i className="icon-sideWrapper fas fa-user-circle"></i>
-            Profile</button>
+           {userName}</button>
     </aside>
 }
 

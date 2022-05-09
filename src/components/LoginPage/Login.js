@@ -4,14 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { loginService } from '../../utils/AuthFunctions';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { setInitialAuth  } = useAuth();
+    const { setInitialAuth, initialAuth  } = useAuth();
+    const { isLoggedIn } = initialAuth;
     const [loginData, setLoginData] = useState({
         email:'',
         password: ''
     });
+    
+    useEffect(() => {
+        if(isLoggedIn === false){
+            localStorage.clear()
+        }
+    }, [isLoggedIn])
 
     const loginInputHandler = (e) => {
         setLoginData((prev) => ({...prev, [e.target.name]: e.target.value}))
@@ -21,9 +29,11 @@ const Login = () => {
         const respData = await loginService(loginData.email, loginData.password)
         if(respData){
             setInitialAuth({isLoggedIn: true,
-                token: respData.data.encodedToken});
+            token: respData.data.encodedToken});
             localStorage.setItem('token', respData.data.encodedToken)
             localStorage.setItem('isLoggedIn', true)
+            
+            localStorage.setItem('userName', respData.data.foundUser[0]) 
             navigate('/homePage') 
         } 
           
@@ -36,6 +46,7 @@ const Login = () => {
                 token: respData.data.encodedToken});
             localStorage.setItem('token', respData.data.encodedToken)
             localStorage.setItem('isLoggedIn', true)
+            localStorage.setItem('userName', respData.data.foundUser.firstName) 
             navigate('/homePage')
         }
         

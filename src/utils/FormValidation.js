@@ -5,7 +5,7 @@
 export const validateForm = (values) => {
     const errors = {}
     let re = /\S+@\S+\.\S+/;
-    if(!values.username){
+    if(!values.firstName){
         errors.username = 'Username is required!'
     }
     if(!values.email){

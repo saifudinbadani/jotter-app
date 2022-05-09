@@ -27,6 +27,7 @@ export const signUpService = async (email, password, ...rest) => {
           ...rest
         });
         if(response.status === 200 || response.status === 201 ){
+            console.log(response)
             return response
          }
       } catch (error) {

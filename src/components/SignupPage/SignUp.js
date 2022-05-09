@@ -7,7 +7,7 @@ import { validateForm } from '../../utils/FormValidation';
 
 export const SignUp = () => {
     const navigate = useNavigate();
-    const initialState = { username: '', email: '', passwordOne: '', passwordTwo:''}    
+    const initialState = { firstName: '', email: '', passwordOne: '', passwordTwo:''}    
     const [formValues, setFormValues] = useState(initialState);
     const [formErrors, setFormErrors] = useState({});
 
@@ -21,7 +21,7 @@ export const SignUp = () => {
        setFormErrors(validateForm(formValues)) 
        
        if(validateForm(formValues) === false){
-        const response = await signUpService(formValues.email, formValues.passwordOne, formValues.username);
+        const response = await signUpService(formValues.email, formValues.passwordOne, formValues.firstName);
         
         if(response.errors){
             setFormErrors(response.errors)
@@ -38,8 +38,8 @@ export const SignUp = () => {
          <form id="form" className="form" onSubmit={handleFormSubmit}>
              <h3 className="heading-3 txt-align-cntr">Signup</h3>
             <div className="form-control p-1">
-                <label htmlFor="username" className="heading-4">Username</label>
-                <input type="text" name='username' placeholder="Enter username"  value={formValues.username} onChange={handleFormChange}/>
+                <label htmlFor="firstName" className="heading-4">Username</label>
+                <input type="text" name='firstName' placeholder="Enter username"  value={formValues.firstName} onChange={handleFormChange}/>
                 <small className='err'>{formErrors.username}</small>
             </div>
 

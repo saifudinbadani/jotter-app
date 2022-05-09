@@ -48,10 +48,42 @@ export const MainContent = ({setModalOpen}) => {
     }
    
     const sortByPriorityData = sortByPriorityFn(sortByPriority, notesData)
-    const sortByTimeData = sortByTimeFn(sortTime, sortByPriorityData)
+  
 
 
     return <div className='main-notes-container display-flex'>
+        <div className="input-search display-flex-c pos-rltv">
+        
+             <i className="fas fa-filter font-size-2pt6 filter-icon pos-absolute"></i>
+             <input type="text" placeholder="search" className="nav-input-search" />
+             
+
+             <div className="filter-note-form m-t-1 display-flex-c">
+                <div className="display-flex m-t-1 align-items-cntr">
+                    <input type="radio" id="priorityLtoH" name="sortingPriority" value="priorityLtoH" onChange={() => noteDispatch({type: 'SORT_BY_PRIORITY_LtoH'})} checked={sortByPriority === 'SORT_BY_PRIORITY_LtoH'}/>
+                    <label htmlFor="priorityLtoH" className="font-size-1pt4 p-rl-1">Priority - Low to High</label>
+                </div>
+                <div className="display-flex m-t-1 align-items-cntr">
+                    <input type="radio" id="priorityHtoL" name="sortingPriority" value="priorityHtoL" onChange={() => noteDispatch({type: 'SORT_BY_PRIORITY_HtoL'})} checked={sortByPriority === 'SORT_BY_PRIORITY_HtoL'}/>
+                    <label htmlFor="priorityHtoL" className="font-size-1pt4 p-rl-1">Priority - High to Low</label>
+                </div>
+
+                <div className="display-flex m-t-1 align-items-cntr">
+                    <input type="radio" id="sortByLtoH" name="sortingPriority" value="sortByLtoH" onChange={() => noteDispatch({type: 'sortByLtoH'})} checked={sortByPriority === 'sortByLtoH'}/>
+                    <label htmlFor="sortByLtoH" className="font-size-1pt4 p-rl-1">Recent to Old</label>
+                </div>
+                <div className="display-flex m-t-1 align-items-cntr">
+                    <input type="radio" id="sortByHtoL" name="sortingPriority" value="sortByHtoL" onChange={() => noteDispatch({type: 'sortByHtoL'})} checked={sortByPriority === 'sortByHtoL'}/>
+                    <label htmlFor="sortByHtoL" className="font-size-1pt4 p-rl-1">Old to Recent </label>
+                </div>
+            </div>
+        </div>
+
+        {/* <div className='filterTable-note-container display-flex'>
+        
+        </div> */}
+
+
         <div className='input-note-container display-flex p-1 heading-3'>
             <input type='text' name='title' className='title-input-note heading-3 m-1' value={title} onChange={(e) => setTitle(e.target.value)} placeholder='title comes here...'/>
             <textarea name='content' className='content-input-note m-1' placeholder='content comes here...'  onChange={(e) => setContent(e.target.value) } value={content}/>
@@ -70,33 +102,11 @@ export const MainContent = ({setModalOpen}) => {
                 </div>
         </div>
 
-        <div className='filterTable-note-container display-flex'>
-            {/* <p className="filter-note-heading heading-4 fw-bold m-t-1">Filter:</p> */}
-            <div className="filter-note-form m-t-1 display-flex-c">
-                <div className="display-flex m-t-1 align-items-cntr">
-                    <input type="radio" id="priorityLtoH" name="sortingPriority" value="priorityLtoH" onChange={() => noteDispatch({type: 'SORT_BY_PRIORITY_LtoH'})} checked={sortByPriority === 'SORT_BY_PRIORITY_LtoH'}/>
-                    <label htmlFor="priorityLtoH" className="font-size-1pt4 p-rl-1">Priority - Low to High</label>
-                </div>
-                <div className="display-flex m-t-1 align-items-cntr">
-                    <input type="radio" id="priorityHtoL" name="sortingPriority" value="priorityHtoL" onChange={() => noteDispatch({type: 'SORT_BY_PRIORITY_HtoL'})} checked={sortByPriority === 'SORT_BY_PRIORITY_HtoL'}/>
-                    <label htmlFor="priorityHtoL" className="font-size-1pt4 p-rl-1">Priority - High to Low</label>
-                </div>
-            </div>
-            <div className="filter-note-form m-t-1 display-flex-c">
-                <div className="display-flex m-t-1 align-items-cntr">
-                    <input type="radio" id="sortByLtoH" name="sortingTime" value="sortByLtoH" onChange={() => noteDispatch({type: 'sortByLtoH'})} checked={sortTime === 'sortByLtoH'}/>
-                    <label htmlFor="sortByLtoH" className="font-size-1pt4 p-rl-1">Recent to Old</label>
-                </div>
-                <div className="display-flex m-t-1 align-items-cntr">
-                    <input type="radio" id="sortByHtoL" name="sortingTime" value="sortByHtoL" onChange={() => noteDispatch({type: 'sortByHtoL'})} checked={sortTime === 'sortByHtoL'}/>
-                    <label htmlFor="sortByHtoL" className="font-size-1pt4 p-rl-1">Old to Recent </label>
-                </div>
-            </div>
-        </div>
+        
 
         <div className='notes-container display-flex'>
 
-            {sortByTimeData.map((note) => {
+            {sortByPriorityData.map((note) => {
                 return <>
                             <NoteCard note={note} setModalOpen={setModalOpen} key={note._id}/>
                         </> 
