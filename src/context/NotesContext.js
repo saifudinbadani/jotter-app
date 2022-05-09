@@ -8,7 +8,6 @@ const NotesProvider = ({children}) => {
         notesData: [],
         archiveNotes: [],
         sortByPriority: '',
-        sortTime: ''
     })
     return <NotesContext.Provider value={{noteState, noteDispatch}}>
         {children}
